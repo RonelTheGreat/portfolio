@@ -70,7 +70,7 @@ export default {
           id: 2,
           label: "knowledgeable with",
           skills: ["Node JS", "MongoDB"]
-        },
+        }
       ]
     };
   }
@@ -281,11 +281,10 @@ export default {
       flex-wrap: wrap;
       padding-left: 4rem;
       padding-right: 4rem;
-      justify-content: space-evenly;
+      justify-content: space-between;
 
       .skill-group {
         margin-top: 3rem;
-        width: calc(100% / 3);
       }
     }
   }
