@@ -285,6 +285,7 @@ export default {
 
       .skill-group {
         margin-top: 3rem;
+        width: calc(100% / 3);
       }
     }
   }
