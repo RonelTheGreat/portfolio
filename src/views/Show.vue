@@ -187,6 +187,10 @@ export default {
     margin-top: 2rem;
   }
 
+  .summary p {
+    color: $font-primary;
+  }
+
   ul {
     list-style-type: disc;
     padding-left: 1rem;

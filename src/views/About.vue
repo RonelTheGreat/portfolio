@@ -42,35 +42,40 @@
       <h1 class="heading">skill set</h1>
 
       <div class="skills">
-        <div class="strong">
-          <h3 class="title">Strong grasp of</h3>
+        <div class="skill-group" v-for="skills in skillset" :key="skills.label">
+          <h3 class="label">
+            {{ skills.label }}
+          </h3>
           <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Javascript</li>
-          </ul>
-        </div>
-
-        <div class="knowledgeable">
-          <h3 class="title">Knowledgeable with</h3>
-          <ul>
-            <li>Node JS</li>
-            <li>MongoDB</li>
-            <li>Sass</li>
-          </ul>
-        </div>
-
-        <div class="fundamentals">
-          <h3 class="title">Fundamentals of</h3>
-          <ul>
-            <li>Vue JS</li>
-            <li>React JS</li>
+            <li v-for="skill in skills.skills" :key="skill.id">{{ skill }}</li>
           </ul>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  name: "About",
+  data() {
+    return {
+      skillset: [
+        {
+          id: 1,
+          label: "strong grasp of",
+          skills: ["HTML", "CSS", "Javascript"]
+        },
+        {
+          id: 2,
+          label: "knowledgeable with",
+          skills: ["Node JS", "MongoDB"]
+        },
+      ]
+    };
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 #about-top {
@@ -218,10 +223,10 @@
 
     li {
       font-size: $font-large;
-      color: #2d2d2d;
+      color: $font-primary;
       padding-top: 1rem;
     }
-    .title {
+    .label {
       font-weight: 500;
       font-size: $font-medium;
       color: $red;
@@ -259,12 +264,10 @@
   }
 
   #skillset {
-    height: 100vh;
     padding-top: 3rem;
     padding-bottom: 3rem;
 
     .heading {
-      padding-bottom: 3rem;
       padding-left: 4rem;
 
       &::before {
@@ -275,13 +278,14 @@
 
     .skills {
       flex-direction: row;
+      flex-wrap: wrap;
       padding-left: 4rem;
       padding-right: 4rem;
-      justify-content: space-between;
+      justify-content: space-evenly;
 
-      div {
-        margin-top: 0;
-        margin-bottom: 0;
+      .skill-group {
+        margin-top: 3rem;
+        width: calc(100% / 3);
       }
     }
   }
